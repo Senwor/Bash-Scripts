@@ -1,0 +1,23 @@
+#!/bin/bash
+# https://github.com/Senwor
+
+# stderr supression
+exec 2>/dev/null
+
+# Formats & Colors
+green='\e[92m'
+bold='\e[1m'
+reset='\e[0m'
+
+# Interface Configuration
+interface='tun0'
+
+ip=$(ifconfig $interface | grep inet | cut -d " " -f10 | head -1)
+
+echo 
+[ -z "$ip" ] && 
+echo -e "${green}Your interface ${bold}$interface ${reset}${green}was not found." || 
+echo -e "${green}Your interface ${bold}$interface ${reset}${green}IP is ${bold}$ip${reset}${green}."
+echo 
+
+exit 1
