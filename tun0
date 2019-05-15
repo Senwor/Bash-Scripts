@@ -1,7 +1,7 @@
 #!/bin/bash
 # https://github.com/Senwor
 
-# stderr supression
+# stderr Supression
 exec 2>/dev/null
 
 # Formats & Colors
