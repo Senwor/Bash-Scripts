@@ -13,7 +13,7 @@ rocks=/usr/share/wordlists/rockyou.txt
 
 echo
 [ -z "$1" ] &&
-echo -e "${green}Usage: rock <file> <flags>" &&
+echo -e "${green}Usage: johnRocks <file> <flags>" &&
 echo &&
 exit 1 ||
 $john --wordlist=$rocks $1 $2 $3 1> >(while read line; do echo -e "${green}$line" >&1; done)
