@@ -5,5 +5,5 @@ A series of bash scripts that time-save for various activities (HackTheBox, CTF'
 Simple script that displays your set interface.  Default interface is tun0.
 
 ## johnRocks
-Runs john against the given hash with rockyou.txt.  Can take additional flages.  Usage: johnRocks <file> <flags>
+Runs john against the given hash with rockyou.txt.  Can take additional flages.  Usage: johnRocks \<file\> \<flags\>
   
