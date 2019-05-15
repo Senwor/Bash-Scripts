@@ -1,0 +1,22 @@
+#!/bin/bash
+# https://github.com/Senwor
+
+# stderr Supression
+exec 2>/dev/null
+
+# Formats & Colors
+green='\e[92m'
+
+# John & rockyou.txt Locations
+john=/usr/sbin/john
+rocks=/usr/share/wordlists/rockyou.txt 
+
+echo
+[ -z "$1" ] &&
+echo -e "${green}Usage: rock <file> <flags>" &&
+echo &&
+exit 1 ||
+$john --wordlist=$rocks $1 $2 $3 1> >(while read line; do echo -e "${green}$line" >&1; done)
+
+echo
+exit 1
