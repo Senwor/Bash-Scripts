@@ -15,3 +15,6 @@ Runs smbserver.py from impacket. Usage: smb <smb-share> <directory-to-share>
 
 ## tun0
 Runs ifconfig and cuts out the shit. Simple script that displays your tun0 IP address.
+
+## wtf
+Where the fuck?? This literally runs find. I use find so often that I cba typing it out. Usage: wtf <file-to-find>
