@@ -1,0 +1,41 @@
+#!/bin/bash
+# https://github.com/Senwor
+
+# stderr Supression
+exec 2>/dev/null
+
+# Formats & Colors
+green='\e[92m'
+bold='\e[1m'
+reset='\e[0m'
+
+# Impacket smbserver.py Location
+smb=/usr/local/bin/smbserver.py
+
+# Interface Configuration
+interface='tun0'
+
+ip=$(ifconfig $interface | grep inet | cut -d " " -f10 | head -1)
+
+share=$1
+dir=$2
+
+echo 
+[ -z "$ip" ] && 
+echo -e "${green}Your interface ${bold}$interface ${reset}${green}was not found." &&
+echo &&
+exit 1 ||
+[ -z "$2" ] &&
+echo -e "${green}Usage: smb <smb-share> <directory-to-share>" &&
+echo &&
+exit 1 ||
+echo -e "${green}Your share is ${bold}\\\\\\$ip\\\\$share${reset}${green}"&&
+echo &&
+
+if [ "$dir" = "win" ];
+then $smb $share /usr/share/windows-binaries -smb2support
+else
+$smb $share $dir -smb2support
+fi
+
+exit 1
