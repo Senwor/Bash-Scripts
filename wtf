@@ -14,7 +14,7 @@ echo
 echo -e "${green}Where the fuck?? Usage: wtf <file-to-find>" &&
 echo &&
 exit 1 ||
-$wtf / -name $1 1> >(while read line; do echo -e "${green}$line" >&1; done) &&
+$wtf / -name $1 1> >(while read line; do echo -e "${green}$line" >&1; done)
 echo
 
 exit 1
