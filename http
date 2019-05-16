@@ -12,6 +12,8 @@ reset='\e[0m'
 # Interface Configuration
 interface='tun0'
 
+py=/usr/bin/python
+
 ip=$(ifconfig $interface | grep inet | cut -d " " -f10 | head -1)
 
 echo 
@@ -25,6 +27,6 @@ echo &&
 exit 1 ||
 echo -e "${green}Your URL is ${bold}http://$ip:$1${reset}${green}"
 echo 
-cd $2 && python -m SimpleHTTPServer $1
+cd $2 && $py -m SimpleHTTPServer $1
 echo
 exit 1
