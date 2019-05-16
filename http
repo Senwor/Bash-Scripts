@@ -1,0 +1,30 @@
+#!/bin/bash
+# https://github.com/Senwor
+
+# stderr Supression
+exec 2>/dev/null
+
+# Formats & Colors
+green='\e[92m'
+bold='\e[1m'
+reset='\e[0m'
+
+# Interface Configuration
+interface='tun0'
+
+ip=$(ifconfig $interface | grep inet | cut -d " " -f10 | head -1)
+
+echo 
+[ -z "$ip" ] && 
+echo -e "${green}Your interface ${bold}$interface ${reset}${green}was not found." &&
+echo &&
+exit 1 ||
+[ -z "$1" ] &&
+echo -e "${green}Usage: http <port> <directory>" &&
+echo &&
+exit 1 ||
+echo -e "${green}Your URL is ${bold}http://$ip:$1${reset}${green}"
+echo 
+cd $2 && python -m SimpleHTTPServer $1
+echo
+exit 1
