@@ -1,5 +1,5 @@
 # Bash-Scripts
-A series of bash scripts that time-save for various activities (HackTheBox, CTF's, Pentesting, messing around, etc.) Most scripts are scrapped together from other scripts that I have found useful w/ added personal touch. 
+A series of bash scripts that time-save for various activities (HackTheBox, CTF's, Pentesting, messing around, etc.) Most scripts are scrapped together from other scripts that I have found useful w/ added personal touch or bug-fixed. 
 
 ## http
 Runs python SimpleHTTPServer on designated interface, port & location. Usage: http \<ip\> \<location\>
@@ -17,4 +17,4 @@ Runs smbserver.py from impacket. Usage: smb <smb-share> <directory-to-share>
 Runs ifconfig and cuts out the shit. Simple script that displays your tun0 IP address.
 
 ## wtf
-Where the fuck?? This literally runs find. I use find so often that I cba typing it out. Usage: wtf <file-to-find>
+Where the fuck?? This literally runs find. I use find so often that I cba typing it out. Usage: wtf \<file-to-find\>
