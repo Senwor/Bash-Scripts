@@ -7,6 +7,9 @@ Runs python SimpleHTTPServer on designated interface, port & location. Usage: ht
 ## johnRocks
 Runs john against the given hash with rockyou.txt. Can take additional flages. Usage: johnRocks \<file\> \<flags\>
 
+## phpShell
+Modifies the [pentestmonkey reverse shell](http://pentestmonkey.net/tools/web-shells/php-reverse-shell) with your IP, given port and output name (including .php).  Usage: phpShell <port> <output>
+
 ## smb
 Runs smbserver.py from impacket. Usage: smb <smb-share> <directory-to-share>
 
