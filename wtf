@@ -1,0 +1,20 @@
+#!/bin/bash
+# https://github.com/Senwor
+
+# stderr Supression
+exec 2>/dev/null
+
+# Formats & Colors
+green='\e[92m'
+
+wtf=/usr/bin/find
+
+echo
+[ -z "$1" ] &&
+echo -e "${green}Where the fuck?? Usage: wtf <file-to-find>" &&
+echo &&
+exit 1 ||
+$wtf / -name $1 1> >(while read line; do echo -e "${green}$line" >&1; done) &&
+echo
+
+exit 1
